@@ -1,0 +1,19 @@
+name: Rust CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      path:
+        description: "Patch to link"
+        required: true
+        default: "."
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - run: cargo build
+
+      - run: cargo test
